@@ -12,6 +12,7 @@
 typedef enum{
     PORT_UART_STD,
     PORT_UART_RS485,
+    PORT_UART_SIZE,
     PORT_UART_INVALID = 255,
 }PORT_UART_TYPE;
 

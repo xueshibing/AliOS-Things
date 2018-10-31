@@ -6,8 +6,10 @@ MODULE               := 1062
 HOST_ARCH            := Cortex-M4
 HOST_MCU_FAMILY      := stm32f4xx_cube
 SUPPORT_BINS         := no
-HOST_MCU_NAME        := STM32F407ZET6
+HOST_MCU_NAME        := STM32F407ZGT6
 ENABLE_VFP           := 1
+
+GLOBAL_DEFINES += CONFIG_NO_TCPIP
 
 $(NAME)_SOURCES += aos/board_partition.c \
                    aos/soc_init.c
@@ -30,7 +32,7 @@ $(NAME)_SOURCES += startup_stm32f407xx_keil.s
 else ifeq ($(COMPILER), iar)
 $(NAME)_SOURCES += startup_stm32f407xx_iar.s  
 else
-$(NAME)_SOURCES += startup_stm32f407xx.s
+$(NAME)_SOURCES += startup_stm32f407xx_gcc.s
 endif
 
 GLOBAL_INCLUDES += . \
